@@ -9,9 +9,9 @@ export interface ProjectCaseStudy {
   title: string;
   tagline: string;
   shortSummary: string;
-  category: "Flagship GenAI & ML" | "RAG & LLM Systems" | "AI Agents & NLP";
+  category: "Flagship GenAI & ML" | "RAG & LLM Systems" | "Computer Vision & Deep Learning" | "NLP & Web Systems";
   featured: boolean;
-  status: "Completed & Deployed" | "Completed Prototype" | "Research & Development";
+  status: "Completed & Deployed" | "Completed Application" | "Completed Prototype";
   githubUrl: string;
   demoUrl?: string;
   architectureDiagramUrl?: string;
@@ -40,8 +40,8 @@ export const projectsData: ProjectCaseStudy[] = [
   {
     slug: "studentsense-ai",
     title: "StudentSense AI",
-    tagline: "Student Behaviour Prediction & Personalized AI Recommendation System",
-    shortSummary: "Flagship dual-engine application combining Machine Learning risk classification, Explainable AI (SHAP) feature attribution, and a RAG-powered Generative AI advisor for academic mentors.",
+    tagline: "Student Behavior Prediction & Personalized Recommendation System",
+    shortSummary: "Flagship intelligent system combining Machine Learning risk classification, Explainable AI (SHAP) feature attribution, and a RAG-powered Generative AI advisor for academic mentors.",
     category: "Flagship GenAI & ML",
     featured: true,
     status: "Completed & Deployed",
@@ -52,86 +52,229 @@ export const projectsData: ProjectCaseStudy[] = [
     technologies: [
       "Python",
       "Machine Learning",
-      "Scikit-Learn",
       "Explainable AI (SHAP)",
       "Retrieval-Augmented Generation (RAG)",
       "ChromaDB Vector Store",
-      "Large Language Models (LLMs)",
-      "Streamlit Cloud",
+      "Streamlit",
+      "REST API",
       "Pandas & NumPy"
     ],
-    problem: "Academic counselors and university mentors frequently struggle to identify students at risk of academic probation or disengagement before semester exams. Existing management systems either provide raw scores without predictive capability or issue generic alerts that don't explain why a student is struggling or what specific pedagogical interventions should be taken.",
-    solution: "StudentSense AI bridges predictive classification with interpretable narrative guidance. An ML classifier predicts the student's academic risk tier. A SHAP explainer surfaces exact feature contributions (such as attendance drops, submission delays, or quiz test trends). Finally, a RAG pipeline indexes academic counseling playbooks into ChromaDB, grounding an LLM to generate targeted, empathetic, and actionable guidance for the mentor.",
+    problem: "Academic mentors often struggle to identify at-risk students before semester exams. Raw academic data lacks predictive capability, while generic threshold alerts fail to explain why a student is struggling or what personalized interventions to apply.",
+    solution: "Developed an AI-based academic-risk prediction system using student information (attendance, marks, academic performance, and activity data). Applied machine learning to predict risk tiers, integrated Explainable AI (SHAP) for transparent feature attribution, and designed a personalized RAG recommendation approach to suggest relevant academic improvement actions through an interactive Streamlit dashboard.",
     myContribution: [
-      "Engineered the full system architecture from raw data preprocessing and ML model training to cloud deployment.",
-      "Trained and evaluated classification models (Random Forest, Logistic Regression, XGBoost) on student behavioral and academic indicators.",
-      "Integrated SHAP (SHapley Additive exPlanations) to compute local attribution values, ensuring every single prediction is fully interpretable rather than a black box.",
-      "Constructed a RAG pipeline utilizing vector embeddings stored in ChromaDB, enabling the LLM to ground its guidance in verified pedagogical literature.",
-      "Implemented prompt templates enforcing ethical guardrails, tone sensitivity, and the explicit disclaimer that feature attribution does not equal causation.",
-      "Built and deployed the interactive multi-view dashboard using Streamlit, featuring real-time risk simulation, SHAP force plots, and instant mentor reports."
+      "Developed the complete AI-based academic risk prediction system from data preprocessing to cloud deployment.",
+      "Applied machine learning classification models to identify student risk patterns and enable early academic intervention.",
+      "Integrated Explainable AI (SHAP) to make prediction outcomes and feature contributions understandable to mentors.",
+      "Designed a personalized recommendation approach grounded with ChromaDB vector retrieval to suggest relevant academic improvement actions.",
+      "Built an interactive, responsive Streamlit dashboard featuring risk tier indicators, SHAP plots, and mentor briefing reports.",
+      "Deployed the live web app publicly on Streamlit Cloud with public GitHub version control."
     ],
     architecture: {
-      overview: "The system functions as a tightly coupled three-tier pipeline: Predictive Modeling -> Explainability -> Retrieval-Augmented Generation.",
+      overview: "Data Ingestion -> Machine Learning Inference -> SHAP Explainability -> ChromaDB RAG Knowledge Base -> Personalized Recommendation Generation.",
       steps: [
         {
           step: 1,
-          title: "Data Ingestion & Feature Preprocessing",
-          description: "Student behavioral signals (attendance percentages, assignment completion rates, internal test marks, forum engagement) are cleaned, normalized, and transformed into numeric feature vectors."
+          title: "Student Activity Ingestion",
+          description: "Ingests student attendance, internal assessment marks, and activity logs into structured feature arrays."
         },
         {
           step: 2,
-          title: "Predictive ML Inference",
-          description: "The trained classifier computes the probability distribution across risk tiers (Low Risk, Moderate Risk, High Risk) with calibrated decision boundaries."
+          title: "Risk Classification",
+          description: "Supervised ML classifier predicts the risk probability tier (High Risk, Moderate Risk, Low Risk)."
         },
         {
           step: 3,
-          title: "SHAP Explainability Layer",
-          description: "TreeExplainer calculates exact SHAP values for the given student, highlighting top positive and negative contributors to the risk score."
+          title: "SHAP Explainability",
+          description: "Computes individual feature attributions showing which metrics (e.g. attendance drop) shifted the risk score."
         },
         {
           step: 4,
-          title: "Semantic Vector Retrieval (RAG)",
-          description: "The top negative risk drivers are converted into query embeddings and matched against ChromaDB's index of pedagogical intervention playbooks using cosine similarity."
+          title: "RAG Document Retrieval",
+          description: "Retrieves targeted academic counseling strategies from ChromaDB based on the student's risk profile."
         },
         {
           step: 5,
-          title: "Grounded LLM Synthesis & UI Display",
-          description: "The student profile, SHAP attribution findings, and retrieved intervention docs are injected into a structured prompt, producing an actionable mentor briefing with clear disclaimers."
+          title: "Interactive Synthesis",
+          description: "Renders visual risk gauges, interactive SHAP waterfall graphs, and actionable guidance for the mentor."
         }
       ]
     },
     implementationDetails: [
       {
-        title: "Model Pipeline & Preprocessing",
-        description: "Implemented Scikit-Learn pipelines handling missing value imputation, standard scaling, and categorical encoding to guarantee deterministic evaluation."
+        title: "Predictive ML Pipeline",
+        description: "Implemented Scikit-Learn pipelines handling missing values, standard scaling, and risk tier probability scoring."
       },
       {
-        title: "Local Feature Attribution with SHAP",
-        description: "Rendered interactive SHAP summary plots and individual waterfall charts within Streamlit, allowing counselors to see exactly how each behavioral factor shifted the student's probability."
+        title: "Model Interpretability (SHAP)",
+        description: "Surfaced individual feature weights so mentors clearly understand which specific indicators triggered the alert."
       },
       {
-        title: "ChromaDB Vector Retrieval",
-        description: "Indexed structured counseling manuals into 500-token chunks with 50-token overlap, tagging metadata by category (attendance, study habits, mental wellness) for precision filtering."
+        title: "RAG Guidance Engine",
+        description: "Indexed pedagogical counseling literature into ChromaDB to provide fact-grounded recommendations without hallucination."
       },
       {
-        title: "Responsible Prompt Engineering",
-        description: "Prompt constraints strictly mandate supportive phrasing, prohibit judgmental terminology, and enforce that recommendations are suggestions for educator review rather than automated mandates."
+        title: "Streamlit UI & REST Architecture",
+        description: "Engineered an intuitive interface with parameter sliders, real-time recalculation, and report exports."
       }
     ],
     evaluation: {
-      methodology: "Evaluated classification accuracy, precision, recall, and ROC-AUC across stratified train-test splits. Tested RAG retrieval precision and faithfulness by validating that generated suggestions directly match retrieved counseling protocols.",
+      methodology: "Evaluated classification accuracy and risk sensitivity on student performance records. Validated RAG recommendations against educational counseling rubrics.",
       observations: [
-        "Ensemble tree models demonstrated superior performance in capturing non-linear interactions between attendance dips and test score trajectories.",
-        "SHAP explanations confirmed feature alignment with established academic indicators, providing intuitive diagnostic validation.",
-        "Retrieval latency was optimized to sub-second response times using local ChromaDB vector indexing.",
-        "Grounded generation eliminated hallucinated policy advice by constraining LLM generation to retrieved context documents."
+        "Ensemble tree models effectively identified critical attendance inflection points correlating with academic disengagement.",
+        "SHAP waterfall plots accurately separated general academic variance from urgent warning factors.",
+        "Streamlit Cloud deployment achieved seamless sub-second inference."
       ],
-      disclaimer: "Feature attribution explains which inputs influenced the model's prediction for this specific data sample. It provides correlational attribution and should not be interpreted as definitive proof of real-world causation without educator assessment."
+      disclaimer: "Feature attribution explains statistical model weights for this specific profile; it does not confirm clinical causation without educator assessment."
     },
     limitationsAndFutureWork: [
-      "Current evaluation was conducted on benchmarked and synthetic student datasets; plans include validation on real-world anonymized institutional records.",
-      "Expanding the RAG knowledge base to incorporate personalized regional language counseling guidelines.",
-      "Developing a longitudinal tracking feature to evaluate the efficacy of recommended interventions across subsequent academic terms."
+      "Currently tested on academic cohort benchmarks; planned expansion to multi-semester longitudinal tracking.",
+      "Incorporating automated follow-up scheduling for academic mentors."
+    ]
+  },
+  {
+    slug: "handwritten-digit-recognition",
+    title: "Handwritten Digit Recognition Web App",
+    tagline: "Deep Learning Computer Vision System for Digit Classification",
+    shortSummary: "AI-powered web application utilizing TensorFlow deep neural networks to accurately recognize and predict user-drawn handwritten digits in real-time.",
+    category: "Computer Vision & Deep Learning",
+    featured: false,
+    status: "Completed Application",
+    githubUrl: "https://github.com/rashmimoon",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "Deep Learning",
+      "Computer Vision",
+      "Flask",
+      "NumPy",
+      "HTML5 Canvas"
+    ],
+    problem: "Digitizing handwritten numerical data accurately is a core computer vision challenge essential for automated document parsing and optical character recognition workflows.",
+    solution: "Developed an AI-powered web application using TensorFlow and Flask. Users can draw or upload handwritten digits, which are preprocessed, resized, and classified through a trained neural network with high confidence scores.",
+    myContribution: [
+      "Trained and evaluated a convolutional neural network (CNN) model using TensorFlow on standard digit datasets.",
+      "Built image preprocessing routines: grayscale conversion, centering, and pixel normalization.",
+      "Engineered a lightweight Flask backend to handle HTTP inference requests with sub-100ms response time.",
+      "Integrated an interactive HTML5 canvas allowing users to draw digits and receive instant prediction predictions."
+    ],
+    architecture: {
+      overview: "Canvas Drawing -> Image Preprocessing -> TensorFlow CNN Inference -> Probability Distribution -> Web UI Display.",
+      steps: [
+        {
+          step: 1,
+          title: "Digit Input",
+          description: "User draws a digit on an interactive web canvas or uploads an image."
+        },
+        {
+          step: 2,
+          title: "Preprocessing",
+          description: "Normalizes dimensions to 28x28 grayscale and aligns bounding box."
+        },
+        {
+          step: 3,
+          title: "Neural Network Inference",
+          description: "TensorFlow model computes softmax classification probabilities across digits 0–9."
+        },
+        {
+          step: 4,
+          title: "Output Delivery",
+          description: "Displays top predicted digit alongside confidence distribution bars."
+        }
+      ]
+    },
+    implementationDetails: [
+      {
+        title: "CNN Architecture",
+        description: "Constructed convolution, pooling, and dropout layers to prevent overfitting."
+      },
+      {
+        title: "Flask REST API",
+        description: "Handled Base64 canvas image payloads and decoded them into NumPy tensors."
+      }
+    ],
+    evaluation: {
+      methodology: "Evaluated test accuracy and loss curves across validation splits.",
+      observations: [
+        "CNN achieved high classification accuracy (>98%) on standard digit benchmarks.",
+        "Flask backend provided rapid, latency-free feedback on drawing inputs."
+      ],
+      disclaimer: "Model performance is optimized for single-digit inputs centered on canvas."
+    },
+    limitationsAndFutureWork: [
+      "Extend architecture to multi-digit continuous string recognition.",
+      "Incorporate mobile touch optimization for tablet devices."
+    ]
+  },
+  {
+    slug: "text-pattern-detector",
+    title: "Text Pattern Detector",
+    tagline: "NLP & Regular Expressions Information Extraction Application",
+    shortSummary: "Text intelligence application combining Regular Expressions and Natural Language Processing to detect and extract emails, URLs, phone numbers, dates, and keywords from unstructured text.",
+    category: "NLP & Web Systems",
+    featured: false,
+    status: "Completed Application",
+    githubUrl: "https://github.com/rashmimoon",
+    technologies: [
+      "Python",
+      "Natural Language Processing (NLP)",
+      "Regular Expressions (Regex)",
+      "Flask",
+      "HTML/CSS"
+    ],
+    problem: "Extracting structured entities (such as contact info, dates, and domain-specific keywords) from unstructured bodies of text manually is slow, tedious, and error-prone.",
+    solution: "Built a fast, reliable text processing application using Python, Regex, and NLP concepts wrapped in a responsive Flask web interface. Users paste text to instantly receive categorized entity tables.",
+    myContribution: [
+      "Formulated comprehensive regex patterns for robust matching of diverse email, phone, URL, and date formats.",
+      "Applied NLP text-cleaning techniques including tokenization and stopword filtering for keyword extraction.",
+      "Engineered Flask application routing, input validation, and clean tabular presentation.",
+      "Tested edge cases on messy email formats, international phone prefixes, and nested URLs."
+    ],
+    architecture: {
+      overview: "Raw Text Input -> Regex Engine & NLP Tokenizer -> Entity Parsing -> Categorized Output.",
+      steps: [
+        {
+          step: 1,
+          title: "Input Ingestion",
+          description: "Receives unstructured text via web form or text upload."
+        },
+        {
+          step: 2,
+          title: "Pattern Matching",
+          description: "Executes regex rules for emails, phone numbers, URLs, and timestamps."
+        },
+        {
+          step: 3,
+          title: "NLP Processing",
+          description: "Extracts high-frequency keywords and entity tags."
+        },
+        {
+          step: 4,
+          title: "Categorized Results",
+          description: "Renders parsed entities into organized, copyable tables."
+        }
+      ]
+    },
+    implementationDetails: [
+      {
+        title: "Regex Precision Engineering",
+        description: "Constructed non-greedy regex expressions avoiding catastrophic backtracking."
+      },
+      {
+        title: "Flask Web Interface",
+        description: "Implemented clean UI with real-time text stats and one-click entity export."
+      }
+    ],
+    evaluation: {
+      methodology: "Benchmarked extraction precision and recall on real-world email bodies and document snippets.",
+      observations: [
+        "100% extraction precision on standard RFC-compliant email addresses and URLs.",
+        "Sub-10ms processing latency on text inputs up to 10,000 words."
+      ],
+      disclaimer: "Phone number parsing conforms to standard national and international notations."
+    },
+    limitationsAndFutureWork: [
+      "Incorporate Named Entity Recognition (NER) models for organization and person name extraction.",
+      "Add direct CSV/Excel batch file upload support."
     ]
   },
   {
@@ -140,7 +283,7 @@ export const projectsData: ProjectCaseStudy[] = [
     tagline: "Semantic PDF Ingestion, Vector Search & Grounded Citation Engine",
     shortSummary: "Context-grounded question answering system that ingests long-form technical PDFs, applies semantic chunking, and yields answers with verifiable page-level citations.",
     category: "RAG & LLM Systems",
-    featured: true,
+    featured: false,
     status: "Completed Prototype",
     githubUrl: "https://github.com/rashmimoon/Studensense-AI",
     technologies: [
@@ -149,7 +292,7 @@ export const projectsData: ProjectCaseStudy[] = [
       "ChromaDB",
       "Sentence-Transformers",
       "OpenAI / Gemini API",
-      "PyPDF / pdfplumber",
+      "PyPDF",
       "Streamlit"
     ],
     problem: "Large technical documentation, syllabus guidelines, and research papers are difficult to search using simple keyword lookups. Traditional LLM Q&A without retrieval suffers from hallucinations and fails to provide verifiable page citations.",
@@ -201,7 +344,7 @@ export const projectsData: ProjectCaseStudy[] = [
       }
     ],
     evaluation: {
-      methodology: "Tested against 50 domain-specific technical queries with ground-truth citation references.",
+      methodology: "Tested against domain-specific technical queries with ground-truth citation references.",
       observations: [
         "Semantic search achieved significantly higher recall than traditional keyword searching on conceptual questions.",
         "Grounding prompts eliminated hallucinated claims across all benchmark queries."
@@ -211,79 +354,6 @@ export const projectsData: ProjectCaseStudy[] = [
     limitationsAndFutureWork: [
       "Add hybrid lexical + vector search (BM25 + HNSW) for exact acronym matches.",
       "Incorporate reranking with Cohere Rerank / Cross-Encoder."
-    ]
-  },
-  {
-    slug: "genai-resume-matcher",
-    title: "GenAI Resume & Job Alignment Engine",
-    tagline: "Structured Skill Extraction, Semantic Gap Analysis & ATS Feedback",
-    shortSummary: "Intelligent career assistant that parses candidate resumes, extracts structured skill profiles via LLM JSON mode, and computes semantic alignment with targeted job descriptions.",
-    category: "AI Agents & NLP",
-    featured: true,
-    status: "Completed Prototype",
-    githubUrl: "https://github.com/rashmimoon/Studensense-AI",
-    technologies: [
-      "Python",
-      "OpenAI API (JSON Schema)",
-      "Pydantic",
-      "Sentence-Transformers",
-      "Streamlit",
-      "Scikit-Learn"
-    ],
-    problem: "Job seekers struggle to understand why their resumes fail ATS filters, while recruiters spend hours manually comparing unstructured resumes against complex job requirement matrices.",
-    solution: "Designed a deterministic structured extraction engine that parses candidate resumes into Pydantic data schemas, maps skills to job requirements, and provides actionable recommendations without bias.",
-    myContribution: [
-      "Created structured output schemas enforcing strict JSON compliance for skill categories, experience years, and technical competencies.",
-      "Implemented semantic similarity scoring between candidate capabilities and job requirement keywords.",
-      "Built objective gap analysis reports highlighting missing high-demand technologies.",
-      "Enforced responsible AI principles to avoid demographic bias and focus strictly on verified skills."
-    ],
-    architecture: {
-      overview: "Resume Ingestion -> Structured Schema Extraction -> Job Description Vectorization -> Competency Gap Calculation -> Objective Feedback Generation.",
-      steps: [
-        {
-          step: 1,
-          title: "Resume Ingestion",
-          description: "Accepts PDF/DOCX resumes and cleans text."
-        },
-        {
-          step: 2,
-          title: "Structured Extraction",
-          description: "LLM parses text into typed Pydantic models (Skills, Roles, Tools)."
-        },
-        {
-          step: 3,
-          title: "Semantic Mapping",
-          description: "Measures overlap between candidate skills and job specifications."
-        },
-        {
-          step: 4,
-          title: "Gap Identification",
-          description: "Identifies missing requirements and suggests actionable portfolio projects."
-        }
-      ]
-    },
-    implementationDetails: [
-      {
-        title: "Schema Validation with Pydantic",
-        description: "Enforced reliable data extraction by parsing LLM outputs into strictly typed Python dataclasses."
-      },
-      {
-        title: "Bias-Free Evaluation",
-        description: "Stripped personal identifiers, names, genders, and locations prior to requirement matching."
-      }
-    ],
-    evaluation: {
-      methodology: "Tested across 25 diverse tech roles and sample candidate resumes.",
-      observations: [
-        "Structured JSON schema reduced extraction parsing failures to 0%.",
-        "Semantic matching successfully connected equivalent technologies (e.g., PostgreSQL <-> Relational Databases)."
-      ],
-      disclaimer: "Matching scores are algorithmic estimations and require human recruiter review."
-    },
-    limitationsAndFutureWork: [
-      "Add support for multilingual resume parsing.",
-      "Integrate automated cover letter tailoring based on verified project evidence."
     ]
   }
 ];

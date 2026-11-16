@@ -2,7 +2,7 @@ export interface ExperienceItem {
   id: string;
   role: string;
   organization: string;
-  type: "Virtual Internship" | "Technical Training & Project" | "Academic Project Research";
+  type: "Virtual Internship" | "Industry Internship" | "Technical Training & Project";
   period: string;
   location: string;
   status: "Completed" | "Ongoing" | "Verified";
@@ -13,86 +13,66 @@ export interface ExperienceItem {
 
 export const experienceData: ExperienceItem[] = [
   {
+    id: "exp-novitech",
+    role: "AI & Data Analytics Intern",
+    organization: "NoviTech R&D Pvt. Ltd.",
+    type: "Industry Internship",
+    period: "Internship Track",
+    location: "Tamil Nadu, India",
+    status: "Completed",
+    responsibilities: [
+      "Worked on real-world AI and data analytics tasks with an emphasis on practical problem-solving.",
+      "Engineered data pipelines for preprocessing, cleaning, and exploratory data analysis across structured datasets.",
+      "Collaborated on practical model evaluations and technical documentation for analytics solutions."
+    ],
+    skillsGained: ["AI Engineering", "Data Analytics", "Python", "Problem Solving", "EDA"]
+  },
+  {
     id: "exp-google-aiml",
-    role: "Google AI-ML Virtual Intern",
-    organization: "AICTE / EduSkills Foundation in collaboration with Google for Developers",
+    role: "AICTE Virtual Intern — AI-ML (Google)",
+    organization: "AICTE / EduSkills in collaboration with Google for Developers",
     type: "Virtual Internship",
-    period: "2024",
+    period: "Virtual Internship Track",
     location: "Remote / India",
     status: "Completed",
     responsibilities: [
-      "Completed structured coursework and problem sets on Machine Learning fundamentals and deep neural networks.",
-      "Trained computer vision and supervised learning models using TensorFlow and Python scikit-learn.",
-      "Conducted exploratory data analysis, data normalization, and feature correlation evaluations on standard datasets.",
-      "Engaged in technical cohort reviews and passed cumulative assessments on ML model performance evaluation."
+      "Developed practical knowledge of Artificial Intelligence and Machine Learning using Python.",
+      "Trained and evaluated machine learning and deep learning pipelines with TensorFlow.",
+      "Engaged in technical cohort assessments covering model evaluation metrics, precision, and recall."
     ],
-    skillsGained: ["TensorFlow", "Scikit-Learn", "Model Evaluation", "Computer Vision", "EDA"],
+    skillsGained: ["Machine Learning", "TensorFlow", "Python", "Model Evaluation"],
     certificateRefId: "google-aicte-internship"
   },
   {
     id: "exp-siemens-altair",
-    role: "Data Science Master Virtual Intern",
-    organization: "Siemens / Altair (via AICTE EduSkills)",
+    role: "AICTE Virtual Intern — Data Science Master (ALTAIR)",
+    organization: "AICTE / EduSkills in partnership with ALTAIR",
     type: "Virtual Internship",
-    period: "2024",
+    period: "Virtual Internship Track",
     location: "Remote / India",
     status: "Completed",
     responsibilities: [
-      "Explored industrial data science applications, predictive modeling, and engineering data analytics.",
-      "Executed end-to-end data pipelines: outlier detection, missing value imputation, regression modeling, and performance metrics.",
-      "Utilized Altair analytics tools alongside Python scripting for interactive visualization of multi-variable trends.",
-      "Submitted final capstone project demonstrating structured data science problem-solving methodology."
+      "Gained practical exposure to data analytics, data preprocessing, and data visualization through project-based activities.",
+      "Executed end-to-end data pipelines: outlier detection, feature selection, and predictive modeling.",
+      "Delivered capstone analytics project solving engineering data problems."
     ],
-    skillsGained: ["Data Science", "Python Analytics", "Predictive Modeling", "Feature Engineering"],
+    skillsGained: ["Data Science", "Data Preprocessing", "Data Visualization", "ALTAIR Analytics"],
     certificateRefId: "siemens-altair-datascience"
   },
   {
-    id: "exp-aws-genai",
-    role: "AWS Generative AI & Cloud Trainee",
-    organization: "Amazon Web Services (AWS)",
-    type: "Technical Training & Project",
-    period: "2024",
-    location: "Online / Self-paced Technical Track",
-    status: "Completed",
-    responsibilities: [
-      "Studied foundation models, tokenization, transformer architectures, and generative AI workflow lifecycles.",
-      "Analyzed cloud-based deployment patterns on Amazon Bedrock, exploring model evaluation, prompt structuring, and cost trade-offs.",
-      "Investigated vector embeddings and semantic search integration patterns with serverless AWS architectures.",
-      "Reviewed responsible AI guidelines, data privacy controls, and guardrail mechanisms for enterprise LLM apps."
-    ],
-    skillsGained: ["Generative AI Concepts", "Amazon Bedrock", "Prompt Engineering", "Cloud Fundamentals"],
-    certificateRefId: "aws-generative-ai-badge"
-  },
-  {
-    id: "exp-iirs-isro",
-    role: "AI/ML for Geodata Analysis Trainee",
-    organization: "Indian Institute of Remote Sensing (IIRS) / ISRO",
-    type: "Technical Training & Project",
-    period: "2024",
-    location: "Online Outreach Programme",
-    status: "Completed",
-    responsibilities: [
-      "Participated in the national IIRS-ISRO outreach training on applying artificial intelligence and machine learning to earth observation data.",
-      "Analyzed spatial classification techniques for satellite imagery and multi-spectral raster datasets.",
-      "Gained deep appreciation for real-world high-volume data challenges and spatial data preparation pipelines."
-    ],
-    skillsGained: ["Geospatial AI", "Remote Sensing Data", "Image Classification", "Pattern Recognition"],
-    certificateRefId: "iirs-isro-geodata"
-  },
-  {
     id: "exp-python-fullstack",
-    role: "Python Full Stack Software Development Trainee",
-    organization: "Professional Training Academy",
+    role: "Python Full Stack Development Trainee",
+    organization: "EduSkills Foundation",
     type: "Technical Training & Project",
-    period: "2023",
-    location: "Karnataka, India",
+    period: "Training Program",
+    location: "Remote / India",
     status: "Completed",
     responsibilities: [
-      "Architected responsive web interfaces and decoupled backend REST APIs using Python frameworks and SQLite/PostgreSQL.",
-      "Implemented user session management, asynchronous task workflows, and database indexing for rapid queries.",
-      "Adopted strict version control hygiene using Git and GitHub with feature branching and code reviews."
+      "Built foundational skills in Python-based web application development and backend fundamentals.",
+      "Developed web applications integrating databases (MySQL, Oracle) with Flask and REST APIs.",
+      "Applied version control best practices using Git and GitHub for collaborative development."
     ],
-    skillsGained: ["Python", "FastAPI / Flask", "SQL", "Git / GitHub", "REST APIs"],
+    skillsGained: ["Python", "Flask", "Backend Development", "MySQL", "REST APIs", "Git"],
     certificateRefId: "python-fullstack-dev"
   }
 ];
@@ -110,33 +90,33 @@ export const achievementsData: AchievementItem[] = [
   {
     id: "ach-studentsense",
     title: "Engineered StudentSense AI Live Application",
-    organization: "Independent Capstone Development",
+    organization: "SRM Institute of Science and Technology",
     date: "2024",
     description: "Successfully built, tested, and deployed an end-to-end AI platform combining Scikit-Learn risk modeling, SHAP explainability, and ChromaDB RAG with public live Streamlit hosting.",
     tag: "Flagship Innovation"
   },
   {
-    id: "ach-academic",
-    title: "Consistent Academic Distinction in MCA",
-    organization: "Master of Computer Applications Programme",
-    date: "2024 — Present",
-    description: "Maintained distinction standing across advanced coursework in Machine Learning, Algorithms, Data Science, and Software Architecture.",
+    id: "ach-academic-srm",
+    title: "Semester II CGPA: 8.50 in MCA GenAI Specialization",
+    organization: "SRM Institute of Science and Technology",
+    date: "Current Standing",
+    description: "Achieved top academic performance (Semester I: 7.83, Semester II: 8.50) in advanced Generative AI and Machine Learning coursework.",
     tag: "Academic Excellence"
   },
   {
-    id: "ach-aicte-internship",
-    title: "National Virtual Internship Selection & Completion",
-    organization: "AICTE EduSkills & Industry Partners",
-    date: "2024",
-    description: "Selected for prestigious national technical internship tracks supported by Google and Siemens/Altair, completing all rigorous technical milestones.",
-    tag: "Competitive Selection"
+    id: "ach-bsc-degree",
+    title: "B.Sc. Computer Science Distinction",
+    organization: "S.T. Hindu College",
+    date: "Undergraduate Degree",
+    description: "Graduated with 7.37 CGPA with a strong foundation in Computer Science, C/C++, Python, and Relational Databases.",
+    tag: "Degree Foundation"
   },
   {
-    id: "ach-isro-outreach",
-    title: "ISRO / IIRS Advanced Technology Programme Participant",
-    organization: "Indian Space Research Organisation (IIRS)",
-    date: "2024",
-    description: "Completed specialized training on AI/ML for Geodata Analysis conducted by leading scientists at IIRS/ISRO.",
-    tag: "National Recognition"
+    id: "ach-aicte-internship",
+    title: "AICTE Virtual Internship Completions (Google & Altair)",
+    organization: "AICTE EduSkills",
+    date: "National Tracks",
+    description: "Completed rigorous virtual internship programs certified by Google for Developers and ALTAIR.",
+    tag: "Industry Certified"
   }
 ];

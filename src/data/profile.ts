@@ -26,37 +26,37 @@ export interface ProfileData {
 
 export const profileData: ProfileData = {
   name: "Rashmitha C",
-  role: "MCA Student | Generative AI & AI/ML Developer",
+  role: "MCA Student (GenAI Specialization) | AI/ML Developer",
   headline: "Building intelligent applications with Generative AI, Machine Learning and RAG.",
-  subheadline: "Focused on explainable AI, vector retrieval systems, and practical agentic workflows.",
-  summary: "I'm an MCA student passionate about engineering practical AI solutions. I design and build projects combining machine learning, model explainability (SHAP/XAI), and generative AI with retrieval-augmented generation. Constantly strengthening my software engineering and LLM development skills through hands-on architectures and verified implementations.",
-  location: "India",
-  email: "rashmitha.c.dev@gmail.com",
+  subheadline: "Specializing in Generative AI at SRM Institute of Science and Technology.",
+  summary: "MCA student specializing in Generative AI at SRM Institute of Science and Technology. Passionate about engineering intelligent systems with machine learning, explainability (SHAP/XAI), and context-aware retrieval-augmented generation. Supported by hands-on academic projects (StudentSense AI), virtual internships with Google and Altair, and practical Python full-stack development.",
+  location: "Chengalpattu, Tamil Nadu, India",
+  email: "rashmimoon2005@gmail.com",
   github: "https://github.com/rashmimoon",
-  linkedin: "https://linkedin.com/in/rashmitha-c",
+  linkedin: "https://linkedin.com/in/rashmitha-",
   resumeUrl: "/resume/resume.pdf",
   avatarUrl: "/images/profile-photo.png",
   education: [
     {
-      degree: "Master of Computer Applications (MCA)",
-      institution: "Affiliated University / Institute",
-      period: "2024 — Present",
-      grade: "First Class with Distinction",
+      degree: "Master of Computer Applications (MCA) — Generative AI Specialization",
+      institution: "SRM Institute of Science and Technology",
+      period: "2024 — 2027 (Currently Pursuing)",
+      grade: "Semester I CGPA: 7.83 | Semester II CGPA: 8.50",
       highlights: [
-        "Core focus on Advanced Machine Learning, Natural Language Processing, and Cloud Architecture.",
-        "Engineered StudentSense AI as an end-to-end intelligent prediction and recommendation system.",
-        "Active member of AI/ML student symposiums and technical coding forums."
+        "Core curriculum: Generative AI, Machine Learning, TensorFlow, Natural Language Processing, and LLM Application Concepts.",
+        "Built flagship project StudentSense AI combining ML risk classification, SHAP explanations, and ChromaDB RAG.",
+        "Strong focus on context-aware information retrieval and scalable AI web applications."
       ]
     },
     {
-      degree: "Bachelor of Computer Applications (BCA) / B.Sc Computer Science",
-      institution: "State University / College",
-      period: "2021 — 2024",
-      grade: "Distinction",
+      degree: "Bachelor of Science (B.Sc.) in Computer Science",
+      institution: "S.T. Hindu College",
+      period: "Completed",
+      grade: "CGPA: 7.37",
       highlights: [
-        "Strong foundation in Object-Oriented Programming, Data Structures, Algorithms, and Relational Databases.",
-        "Completed capstone projects in Python full-stack software development and exploratory data analysis.",
-        "Consistently recognized for academic consistency and practical laboratory excellence."
+        "Rigorous foundation in Computer Science principles, Python, C/C++, Data Structures, and Relational Databases (MySQL, Oracle).",
+        "Engineered web applications and text pattern recognition models using Python and regex.",
+        "Active technical contributor in computing seminars and collegiate coding competitions."
       ]
     }
   ],
@@ -74,7 +74,7 @@ export const profileData: ProfileData = {
     {
       title: "Full-Stack AI Application Development",
       description: "Bridging the gap between raw Python notebooks and intuitive, production-ready web interfaces.",
-      evidence: "Deployed interactive Streamlit and Next.js applications with responsive UX, error boundaries, and API integration."
+      evidence: "Deployed interactive Streamlit and Flask applications with responsive UX, error boundaries, and REST API endpoints."
     }
   ]
 };
