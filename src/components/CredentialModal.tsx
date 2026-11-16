@@ -18,6 +18,8 @@ interface CredentialModalProps {
 export default function CredentialModal({ credential, onClose }: CredentialModalProps) {
   if (!credential) return null;
 
+  const isPdf = credential.documentUrl?.toLowerCase().endsWith(".pdf");
+
   return (
     <div
       role="dialog"
@@ -27,7 +29,7 @@ export default function CredentialModal({ credential, onClose }: CredentialModal
       onClick={onClose}
     >
       <div
-        className="relative bg-[#0f172a] border border-slate-700 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative bg-[#0f172a] border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
@@ -72,15 +74,25 @@ export default function CredentialModal({ credential, onClose }: CredentialModal
             </div>
           )}
 
-          {/* Document Preview Image */}
-          <div className="relative w-full aspect-[4/3] max-h-[420px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner flex items-center justify-center">
-            <Image
-              src={credential.documentUrl || credential.thumbnailUrl}
-              alt={credential.title}
-              fill
-              className="object-contain"
-            />
-          </div>
+          {/* Document Preview: PDF iframe or Image */}
+          {isPdf ? (
+            <div className="w-full h-[450px] rounded-xl overflow-hidden border border-slate-800 bg-slate-950 flex flex-col">
+              <iframe
+                src={`${credential.documentUrl}#toolbar=0`}
+                className="w-full h-full border-0 rounded-xl"
+                title={credential.title}
+              />
+            </div>
+          ) : (
+            <div className="relative w-full aspect-[4/3] max-h-[420px] rounded-xl overflow-hidden bg-slate-950 border border-slate-800 shadow-inner flex items-center justify-center">
+              <Image
+                src={credential.documentUrl || credential.thumbnailUrl}
+                alt={credential.title}
+                fill
+                className="object-contain"
+              />
+            </div>
+          )}
 
           {/* Details */}
           <div>
@@ -95,7 +107,7 @@ export default function CredentialModal({ credential, onClose }: CredentialModal
               </div>
               <div className="flex items-center gap-2 text-slate-300">
                 <Calendar className="w-4 h-4 text-sky-400" />
-                <span>Year: <strong>{credential.issueDate}</strong></span>
+                <span>Status / Date: <strong>{credential.issueDate}</strong></span>
               </div>
             </div>
 
@@ -125,10 +137,22 @@ export default function CredentialModal({ credential, onClose }: CredentialModal
         {/* Modal Footer Actions */}
         <div className="flex items-center justify-between p-4 border-t border-slate-800 bg-[#0c1222]">
           <div className="text-[11px] text-slate-400">
-            {credential.isRedacted ? "Public preview copy" : "Verified genuine asset"}
+            {credential.isRedacted ? "Official candidate offer document" : "Verified authentic asset"}
           </div>
 
           <div className="flex items-center gap-3">
+            {credential.documentUrl && (
+              <a
+                href={credential.documentUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition-colors border border-slate-700"
+              >
+                <span>Open Full Document</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+
             {credential.verificationUrl && (
               <a
                 href={credential.verificationUrl}
