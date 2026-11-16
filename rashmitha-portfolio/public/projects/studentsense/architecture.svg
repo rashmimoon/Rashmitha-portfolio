@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgBox" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="primaryFlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="480" fill="#090d16" rx="16" />
+  <rect x="2" y="2" width="896" height="476" fill="none" stroke="#1e293b" stroke-width="1.5" rx="15" />
+
+  <!-- Title Header -->
+  <text x="40" y="48" fill="#f8fafc" font-size="20" font-weight="700" font-family="system-ui, -apple-system, sans-serif">StudentSense AI — Architecture & Data Flow</text>
+  <text x="40" y="74" fill="#94a3b8" font-size="13" font-family="system-ui, -apple-system, sans-serif">End-to-End Pipeline: Machine Learning Inference ➔ SHAP Explainability ➔ ChromaDB Vector RAG ➔ Grounded LLM Synthesis</text>
+
+  <!-- Node 1: Input Data -->
+  <g transform="translate(40, 110)">
+    <rect width="140" height="150" fill="url(#bgBox)" stroke="#334155" stroke-width="1.5" rx="12" filter="url(#cardShadow)" />
+    <rect x="12" y="16" width="32" height="32" rx="6" fill="#3b82f6" opacity="0.15" />
+    <circle cx="28" cy="32" r="8" fill="#3b82f6" />
+    <text x="52" y="32" fill="#f8fafc" font-size="13" font-weight="600" font-family="system-ui">Input Signals</text>
+    <text x="52" y="48" fill="#94a3b8" font-size="11" font-family="system-ui">Behavioral Data</text>
+    
+    <text x="14" y="80" fill="#cbd5e1" font-size="11" font-family="system-ui">• Attendance rate</text>
+    <text x="14" y="98" fill="#cbd5e1" font-size="11" font-family="system-ui">• Test score trends</text>
+    <text x="14" y="116" fill="#cbd5e1" font-size="11" font-family="system-ui">• LMS activity</text>
+    <text x="14" y="134" fill="#cbd5e1" font-size="11" font-family="system-ui">• Submission delays</text>
+  </g>
+
+  <!-- Flow Arrow 1 -> 2 -->
+  <path d="M185 185 L220 185" stroke="url(#primaryFlow)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+  <polygon points="220,180 230,185 220,190" fill="#6366f1" />
+
+  <!-- Node 2: ML Model -->
+  <g transform="translate(235, 110)">
+    <rect width="170" height="150" fill="url(#bgBox)" stroke="#6366f1" stroke-width="2" rx="12" filter="url(#cardShadow)" />
+    <rect x="12" y="16" width="32" height="32" rx="6" fill="#6366f1" opacity="0.2" />
+    <rect x="20" y="24" width="16" height="16" rx="3" fill="#6366f1" />
+    <text x="52" y="32" fill="#f8fafc" font-size="13" font-weight="600" font-family="system-ui">ML Risk Model</text>
+    <text x="52" y="48" fill="#94a3b8" font-size="11" font-family="system-ui">Scikit-Learn Pipeline</text>
+
+    <text x="14" y="80" fill="#cbd5e1" font-size="11" font-family="system-ui">• Stratified validation</text>
+    <text x="14" y="98" fill="#cbd5e1" font-size="11" font-family="system-ui">• Random Forest / XGB</text>
+    <text x="14" y="116" fill="#cbd5e1" font-size="11" font-family="system-ui">• Probability calibration</text>
+    <rect x="14" y="126" width="142" height="18" rx="4" fill="#6366f1" opacity="0.25" />
+    <text x="24" y="139" fill="#a5b4fc" font-size="10" font-weight="600" font-family="system-ui">Output: Risk Tier (H/M/L)</text>
+  </g>
+
+  <!-- Flow Arrow 2 -> 3 -->
+  <path d="M410 185 L445 185" stroke="url(#primaryFlow)" stroke-width="3" fill="none" />
+  <polygon points="445,180 455,185 445,190" fill="#8b5cf6" />
+
+  <!-- Node 3: SHAP Explainability -->
+  <g transform="translate(460, 110)">
+    <rect width="180" height="150" fill="url(#bgBox)" stroke="#8b5cf6" stroke-width="2" rx="12" filter="url(#cardShadow)" />
+    <rect x="12" y="16" width="32" height="32" rx="6" fill="#8b5cf6" opacity="0.2" />
+    <circle cx="28" cy="32" r="7" fill="none" stroke="#8b5cf6" stroke-width="2" />
+    <text x="52" y="32" fill="#f8fafc" font-size="13" font-weight="600" font-family="system-ui">XAI (SHAP Engine)</text>
+    <text x="52" y="48" fill="#94a3b8" font-size="11" font-family="system-ui">Feature Attribution</text>
+
+    <text x="14" y="80" fill="#cbd5e1" font-size="11" font-family="system-ui">• TreeExplainer weights</text>
+    <text x="14" y="98" fill="#cbd5e1" font-size="11" font-family="system-ui">• Local force / waterfall</text>
+    <text x="14" y="116" fill="#cbd5e1" font-size="11" font-family="system-ui">• Ranked risk drivers</text>
+    <text x="14" y="134" fill="#a7f3d0" font-size="10" font-family="system-ui">✓ Transparent factors</text>
+  </g>
+
+  <!-- Flow Arrow 3 -> 4 -->
+  <path d="M645 185 L680 185" stroke="url(#primaryFlow)" stroke-width="3" fill="none" />
+  <polygon points="680,180 690,185 680,190" fill="#ec4899" />
+
+  <!-- Node 4: Grounded LLM + RAG -->
+  <g transform="translate(695, 110)">
+    <rect width="170" height="150" fill="url(#bgBox)" stroke="#ec4899" stroke-width="2" rx="12" filter="url(#cardShadow)" />
+    <rect x="12" y="16" width="32" height="32" rx="6" fill="#ec4899" opacity="0.2" />
+    <polygon points="28,24 35,36 21,36" fill="#ec4899" />
+    <text x="52" y="32" fill="#f8fafc" font-size="13" font-weight="600" font-family="system-ui">Grounded LLM</text>
+    <text x="52" y="48" fill="#94a3b8" font-size="11" font-family="system-ui">Synthesis Advisor</text>
+
+    <text x="14" y="80" fill="#cbd5e1" font-size="11" font-family="system-ui">• Structured Prompt</text>
+    <text x="14" y="98" fill="#cbd5e1" font-size="11" font-family="system-ui">• Context injection</text>
+    <text x="14" y="116" fill="#cbd5e1" font-size="11" font-family="system-ui">• Hallucination guards</text>
+    <text x="14" y="134" fill="#cbd5e1" font-size="11" font-family="system-ui">• Actionable plan</text>
+  </g>
+
+  <!-- Vector Store Node (ChromaDB) on bottom layer feeding into LLM -->
+  <g transform="translate(460, 305)">
+    <rect width="180" height="135" fill="url(#bgBox)" stroke="#0ea5e9" stroke-width="1.5" rx="12" filter="url(#cardShadow)" />
+    <rect x="12" y="14" width="28" height="28" rx="6" fill="#0ea5e9" opacity="0.2" />
+    <ellipse cx="26" cy="24" rx="8" ry="4" fill="#0ea5e9" />
+    <text x="48" y="26" fill="#f8fafc" font-size="12" font-weight="600" font-family="system-ui">ChromaDB Store</text>
+    <text x="48" y="40" fill="#94a3b8" font-size="10" font-family="system-ui">Vector Index</text>
+
+    <text x="14" y="70" fill="#94a3b8" font-size="10" font-family="system-ui">Ingested Counseling Docs</text>
+    <text x="14" y="88" fill="#cbd5e1" font-size="11" font-family="system-ui">• Dense embeddings</text>
+    <text x="14" y="104" fill="#cbd5e1" font-size="11" font-family="system-ui">• Cosine ANN search</text>
+    <text x="14" y="120" fill="#38bdf8" font-size="10" font-family="system-ui">➔ Top-K Guidance Chunks</text>
+  </g>
+
+  <!-- Connecting RAG to LLM -->
+  <path d="M645 372 L770 372 L770 265" stroke="#0ea5e9" stroke-width="2.5" stroke-dasharray="5 4" fill="none" />
+  <polygon points="765,268 770,260 775,268" fill="#0ea5e9" />
+  <text x="660" y="360" fill="#38bdf8" font-size="10" font-weight="600" font-family="system-ui">RAG Context</text>
+
+  <!-- Output Delivery Card on Bottom Left -->
+  <g transform="translate(40, 305)">
+    <rect width="365" height="135" fill="url(#bgBox)" stroke="#22c55e" stroke-width="1.5" rx="12" filter="url(#cardShadow)" />
+    <text x="18" y="32" fill="#4ade80" font-size="13" font-weight="700" font-family="system-ui">MENTOR DASHBOARD &amp; INTERVENTION WORKFLOW</text>
+    <text x="18" y="56" fill="#e2e8f0" font-size="12" font-family="system-ui">1. Visual Risk Tier Badge (High / Moderate / Stable)</text>
+    <text x="18" y="76" fill="#e2e8f0" font-size="12" font-family="system-ui">2. Transparent SHAP Contribution Breakdown (Why is the student at risk?)</text>
+    <text x="18" y="96" fill="#e2e8f0" font-size="12" font-family="system-ui">3. Grounded Counseling Strategy with literature citations</text>
+    <text x="18" y="118" fill="#94a3b8" font-size="10" font-style="italic" font-family="system-ui">*Ethical Note: Feature attribution reflects statistical signals, not causation.</text>
+  </g>
+
+</svg>

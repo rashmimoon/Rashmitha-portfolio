@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="riskBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+    <linearGradient id="shapNeg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#fb7185" />
+    </linearGradient>
+    <linearGradient id="shapPos" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+
+  <!-- Window Frame -->
+  <rect width="960" height="560" rx="14" fill="#0b0f19" stroke="#1e293b" stroke-width="2" />
+  
+  <!-- Browser Chrome Top Bar -->
+  <rect width="960" height="42" fill="#0f172a" rx="14" />
+  <rect y="28" width="960" height="14" fill="#0f172a" />
+  <circle cx="24" cy="21" r="5" fill="#ef4444" />
+  <circle cx="42" cy="21" r="5" fill="#f59e0b" />
+  <circle cx="60" cy="21" r="5" fill="#10b981" />
+  
+  <rect x="180" y="9" width="600" height="24" rx="6" fill="#1e293b" />
+  <text x="360" y="25" fill="#94a3b8" font-size="11" font-family="system-ui, monospace">studensense-ai.streamlit.app/dashboard</text>
+
+  <!-- Sidebar (Streamlit-style) -->
+  <rect x="0" y="42" width="240" height="518" fill="#0d1322" stroke="#1e293b" stroke-width="1" />
+  <text x="24" y="80" fill="#f8fafc" font-size="16" font-weight="700" font-family="system-ui">StudentSense AI</text>
+  <text x="24" y="98" fill="#6366f1" font-size="11" font-weight="600" font-family="system-ui">STUDENT RISK ADVISOR</text>
+
+  <rect x="20" y="125" width="200" height="34" rx="6" fill="#1e293b" />
+  <text x="32" y="146" fill="#e2e8f0" font-size="12" font-family="system-ui">Select Student ID: #ST-8402</text>
+
+  <text x="24" y="195" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui">MODEL CONTROLS</text>
+  <text x="24" y="222" fill="#cbd5e1" font-size="11" font-family="system-ui">Decision Threshold: 0.65</text>
+  <rect x="24" y="232" width="190" height="6" rx="3" fill="#334155" />
+  <rect x="24" y="232" width="124" height="6" rx="3" fill="#6366f1" />
+  <circle cx="148" cy="235" r="7" fill="#818cf8" />
+
+  <text x="24" y="275" fill="#cbd5e1" font-size="11" font-family="system-ui">Explainability: SHAP Tree</text>
+  <text x="24" y="305" fill="#cbd5e1" font-size="11" font-family="system-ui">RAG Knowledge: Active</text>
+  <text x="24" y="335" fill="#cbd5e1" font-size="11" font-family="system-ui">LLM Synthesis: Guided</text>
+
+  <rect x="20" y="480" width="200" height="36" rx="8" fill="#6366f1" />
+  <text x="56" y="503" fill="#ffffff" font-size="12" font-weight="600" font-family="system-ui">Re-Run Analysis ➔</text>
+
+  <!-- Main Content Area -->
+  <g transform="translate(260, 60)">
+    <!-- Header Banner -->
+    <text x="0" y="24" fill="#f8fafc" font-size="18" font-weight="700" font-family="system-ui">Student Performance &amp; Risk Diagnostic View</text>
+    <text x="0" y="44" fill="#94a3b8" font-size="12" font-family="system-ui">Diagnostic Cohort: Computer Applications Semester 3 • Model Status: Verified</text>
+
+    <!-- Top KPI Cards -->
+    <!-- Card 1: Risk Assessment -->
+    <g transform="translate(0, 60)">
+      <rect width="210" height="96" fill="#131b2e" stroke="#334155" stroke-width="1" rx="10" />
+      <text x="16" y="26" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui">PREDICTED RISK TIER</text>
+      <text x="16" y="60" fill="#f87171" font-size="22" font-weight="800" font-family="system-ui">High Risk</text>
+      <text x="16" y="82" fill="#ef4444" font-size="11" font-family="system-ui">Risk Probability: 78.4%</text>
+      <rect x="140" y="20" width="55" height="22" rx="11" fill="#7f1d1d" />
+      <text x="150" y="35" fill="#fca5a5" font-size="10" font-weight="700" font-family="system-ui">ALERT</text>
+    </g>
+
+    <!-- Card 2: Attendance Rate -->
+    <g transform="translate(225, 60)">
+      <rect width="210" height="96" fill="#131b2e" stroke="#334155" stroke-width="1" rx="10" />
+      <text x="16" y="26" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui">ATTENDANCE TREND</text>
+      <text x="16" y="60" fill="#fbbf24" font-size="22" font-weight="800" font-family="system-ui">64.2%</text>
+      <text x="16" y="82" fill="#f59e0b" font-size="11" font-family="system-ui">▼ 14% drop in 4 weeks</text>
+    </g>
+
+    <!-- Card 3: Internal Scores -->
+    <g transform="translate(450, 60)">
+      <rect width="210" height="96" fill="#131b2e" stroke="#334155" stroke-width="1" rx="10" />
+      <text x="16" y="26" fill="#94a3b8" font-size="11" font-weight="600" font-family="system-ui">INTERNAL MARKS AVG</text>
+      <text x="16" y="60" fill="#38bdf8" font-size="22" font-weight="800" font-family="system-ui">48 / 100</text>
+      <text x="16" y="82" fill="#94a3b8" font-size="11" font-family="system-ui">Assignment Delays: 4 days</text>
+    </g>
+
+    <!-- Bottom Left: SHAP Feature Attribution Waterfall -->
+    <g transform="translate(0, 175)">
+      <rect width="325" height="280" fill="#131b2e" stroke="#1e293b" stroke-width="1" rx="10" />
+      <text x="16" y="28" fill="#f8fafc" font-size="13" font-weight="700" font-family="system-ui">SHAP Feature Attribution</text>
+      <text x="16" y="46" fill="#94a3b8" font-size="10" font-family="system-ui">Local factors shifting risk away from baseline (E[f(x)] = 0.28)</text>
+
+      <!-- Bar 1 -->
+      <text x="16" y="80" fill="#cbd5e1" font-size="11" font-family="system-ui">Attendance Drop (-22%)</text>
+      <rect x="160" y="70" width="120" height="14" rx="3" fill="url(#shapNeg)" />
+      <text x="286" y="81" fill="#f87171" font-size="10" font-weight="600" font-family="system-ui">+0.26</text>
+
+      <!-- Bar 2 -->
+      <text x="16" y="115" fill="#cbd5e1" font-size="11" font-family="system-ui">Internal Test 2 Score</text>
+      <rect x="160" y="105" width="85" height="14" rx="3" fill="url(#shapNeg)" />
+      <text x="252" y="116" fill="#f87171" font-size="10" font-weight="600" font-family="system-ui">+0.18</text>
+
+      <!-- Bar 3 -->
+      <text x="16" y="150" fill="#cbd5e1" font-size="11" font-family="system-ui">LMS Forum Activity</text>
+      <rect x="160" y="140" width="55" height="14" rx="3" fill="url(#shapNeg)" />
+      <text x="222" y="151" fill="#f87171" font-size="10" font-weight="600" font-family="system-ui">+0.11</text>
+
+      <!-- Bar 4 (Positive Factor) -->
+      <text x="16" y="185" fill="#cbd5e1" font-size="11" font-family="system-ui">Lab Project Complete</text>
+      <rect x="110" y="175" width="50" height="14" rx="3" fill="url(#shapPos)" />
+      <text x="75" y="186" fill="#34d399" font-size="10" font-weight="600" font-family="system-ui">-0.09</text>
+
+      <line x1="16" y1="215" x2="305" y2="215" stroke="#334155" stroke-dasharray="4 3" />
+      <text x="16" y="235" fill="#94a3b8" font-size="10" font-style="italic" font-family="system-ui">Feature attribution describes model calculation</text>
+      <text x="16" y="250" fill="#94a3b8" font-size="10" font-style="italic" font-family="system-ui">weights; it does not confirm causal pathology.</text>
+    </g>
+
+    <!-- Bottom Right: RAG Synthesized Guidance -->
+    <g transform="translate(345, 175)">
+      <rect width="315" height="280" fill="#131b2e" stroke="#1e293b" stroke-width="1" rx="10" />
+      <text x="16" y="28" fill="#f8fafc" font-size="13" font-weight="700" font-family="system-ui">RAG-Grounded Counselor Briefing</text>
+      <text x="16" y="46" fill="#38bdf8" font-size="10" font-family="system-ui">Retrieved from: Academic Mentorship Playbook v2.4</text>
+
+      <rect x="16" y="60" width="283" height="150" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" />
+      <text x="28" y="82" fill="#a5b4fc" font-size="11" font-weight="700" font-family="system-ui">Recommended Actions for Mentor:</text>
+      <text x="28" y="104" fill="#e2e8f0" font-size="11" font-family="system-ui">1. Schedule 1-on-1 check-in focusing on</text>
+      <text x="28" y="120" fill="#e2e8f0" font-size="11" font-family="system-ui">   recent attendance decline without blame.</text>
+      <text x="28" y="140" fill="#e2e8f0" font-size="11" font-family="system-ui">2. Leverage strong Lab performance as a</text>
+      <text x="28" y="156" fill="#e2e8f0" font-size="11" font-family="system-ui">   confidence anchor for test preparation.</text>
+      <text x="28" y="176" fill="#e2e8f0" font-size="11" font-family="system-ui">3. Offer modular peer-tutoring for Unit 3.</text>
+      <text x="28" y="196" fill="#94a3b8" font-size="10" font-family="system-ui">[Source: Section 4.2 - At-Risk Interventions]</text>
+
+      <rect x="16" y="224" width="135" height="28" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1" />
+      <text x="26" y="242" fill="#c7d2fe" font-size="10" font-weight="600" font-family="system-ui">Export PDF Report</text>
+
+      <rect x="160" y="224" width="139" height="28" rx="6" fill="#1e293b" />
+      <text x="175" y="242" fill="#94a3b8" font-size="10" font-family="system-ui">Email Notification</text>
+    </g>
+
+  </g>
+</svg>
