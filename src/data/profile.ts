@@ -35,7 +35,7 @@ export const profileData: ProfileData = {
   github: "https://github.com/rashmimoon",
   linkedin: "https://linkedin.com/in/rashmitha-c",
   resumeUrl: "/resume/resume.pdf",
-  avatarUrl: "/images/profile-photo.svg",
+  avatarUrl: "/images/profile-photo.png",
   education: [
     {
       degree: "Master of Computer Applications (MCA)",
